@@ -10,7 +10,6 @@ class CalendarController
     {
         $events = Event::all();
         include __DIR__ . "/../../views/calendar.view.php";
-        $response->getBody()->write($html);
         return $response;
     }
 }

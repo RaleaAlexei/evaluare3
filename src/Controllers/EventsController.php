@@ -7,12 +7,11 @@ use App\Models\Event;
 class EventsController {
     public function index(Request $request, Response $response) {
         include __DIR__."/../../views/create.view.php";
-        $response->getBody()->write($html);
         return $response;
     }
     public function create(Request $request, Response $response) {
         $data = $request->getParsedBody();
-        if(isset($data['title']) || isset($data['description']) || isset($data['location']) || isset($data['date'])) {
+        if(empty($data['title']) || empty($data['description']) || empty($data['location']) || empty($data['date'])) {
             return $response
                 ->withHeader('Location', '/')
                 ->withStatus(302);

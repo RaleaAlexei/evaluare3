@@ -24,27 +24,35 @@ th {
 button {
   margin-right: 10px;
 }
+.options>button{
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
 </style>
 ";
 include("header.php"); ?>
-<h1>Your Database Interface</h1>
+<h1>Evenimente</h1>
 
-<div>
-	<button onclick="filterByDay()">Next Day</button>
-	<button onclick="filterByWeek()">Next Week</button>
-	<button onclick="filterByMonth()">Next Month</button>
-	<button onclick="showAll()">Show All</button>
+<div class="options">
+	<button onclick="redirectToForm()" style="background-color:green">Adauga</button>
+	<button onclick="filterByDay()">Urmatoarea Zi</button>
+	<button onclick="filterByWeek()">Urmatoarea Saptamana</button>
+	<button onclick="filterByMonth()">Urmatoarea Luna</button>
+	<button onclick="showAll()">Arata-le pe toate</button>
 </div>
-
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Location</th>
-			<th>Date</th>
-			<th>Created At</th>
+			<th>#</th>
+			<th>Titlu</th>
+			<th>Descriptie</th>
+			<th>Locatie</th>
+			<th>Data</th>
+			<th>Creat</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -74,6 +82,7 @@ include("header.php"); ?>
 </table>
 
 <script>
+	const redirectToForm = () => window.location.href = '/';
 	const filterByDay = () => filterEvents(1);
 	const filterByWeek = () => filterEvents(7);
 	const filterByMonth = () => filterEvents(30);
