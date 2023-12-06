@@ -43,11 +43,21 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.form-title {
+	text-align: center;
+}
+.submit-wrapper {
+	display: flex;
+	justify-content: center;
+}
+#submit {
+	margin: auto;
+}
 </style>
 ";
 include("header.php"); ?>
 <form action="/events/create" method="post">
-	<h2>Adauaga eveniment</h2>
+	<h2 class="form-title">Adauga eveniment</h2>
 
 	<label for="title">Titlu:</label>
 	<input type="text" id="title" name="title" required>
@@ -60,7 +70,8 @@ include("header.php"); ?>
 
 	<label for="date">Data:</label>
 	<input type="datetime-local" id="date" name="date" required>
-
-	<button type="submit">Add Event</button>
+	<div class="submit-wrapper">
+	<button type="submit" id="submit">Adauaga</button>
+	</div>
 </form>
 <?php include("footer.php"); ?>
